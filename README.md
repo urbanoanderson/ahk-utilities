@@ -53,6 +53,8 @@ AHKUtilities can be used by holding a special hotkey enabler (HE) and pressing a
 
 - `HE+NUMPAD_MULTIPLY`: Mute volume.
 
+- `HE+S`: Launch Spotify app if installed.
+
 ### String insertion and manipulation
 
 - `HE+U`: Replaces the selected text for an UPPERCASE version of it. Works better with short single-line texts.

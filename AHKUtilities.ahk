@@ -107,6 +107,13 @@ ScrollLock & NumpadAdd::Volume_Up
 ScrollLock & NumpadSub::Volume_Down
 ScrollLock & NumpadMult::Volume_Mute
 
+; Launch Spotify App if installed
+ScrollLock & S::
+{
+    Run ".\WinApps\Spotify"
+    Return
+}
+
 ;=====================================================================
 ; STRING INSERTION AND MANIPULATION
 ;=====================================================================
