@@ -1,4 +1,12 @@
 ;=====================================================================
+; SETUP VARIABLES
+;=====================================================================
+
+EMAIL_ADDRESS := "YOUR EMAIL ADDRESS"
+TELEGRAM_BOT_KEY := "YOUR BOT KEY"
+TELEGRAM_CHAT_ID := "YOUR CHAT ID"
+
+;=====================================================================
 ; GLOBAL VARIABLE DECLARATION
 ;=====================================================================
 
@@ -129,7 +137,7 @@ ScrollLock & L::
 ScrollLock & A::
 {
     SetKeyDelay, 0
-    Send, <EMAIL_ADDRESS>
+    Send, %EMAIL_ADDRESS%
     Return
 }
 
@@ -193,7 +201,7 @@ ScrollLock & V::
 ; TELEGRAM INTEGRATION
 ;=====================================================================
 
-; Send selected text as message to myself
+; Make bot send selected text to specified chat Id
 ScrollLock & T::
 {
 	Send, ^c
@@ -201,7 +209,9 @@ ScrollLock & T::
 
     WinHTTP := ComObjCreate("WinHTTP.WinHttpRequest.5.1")
 	textMessage = %ClipBoard%
-    WinHTTP.Open("POST", Format("https://api.telegram.org/bot<TELEGRAM_BOT_KEY>/sendMessage?chat_id=<TELEGRAM_CHAT_ID>&text={1}", textMessage), 0)
+    telegramBotKey = %TELEGRAM_BOT_KEY%
+    telegramChatId = %TELEGRAM_CHAT_ID%
+    WinHTTP.Open("POST", Format("https://api.telegram.org/bot{1}/sendMessage?chat_id={2}&text={3}", telegramBotKey, telegramChatId, textMessage), 0)
 	WinHTTP.Send()
 
     TrayTip Text Sent to Telegram, %textMessage%

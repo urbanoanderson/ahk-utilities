@@ -12,16 +12,16 @@ AHKUtilities is a collection of custom Windows hotkeys for productivity features
 
 - Install Auto Hot Key for Windows ([link](https://autohotkey.com/download))
 - Clone or download `AHKUtilities.ahk` from this repository.
-- Insert your credentials for certain script functions:
-    - <EMAIL_ADDRESS>
-    - <TELEGRAM_BOT_KEY>
-    - <TELEGRAM_CHAT_ID>
+- Edit the following setup variables at the beginning of the script:
+    - EMAIL_ADDRESS: your personal address.
+    - TELEGRAM_BOT_KEY: key for a telegram bot controlled by you
+    - TELEGRAM_CHAT_ID: chatId for a chat involving the bot (probably a chat with you)
 - Execute `AHKUtilities.ahk` with Auto Hot Key.
 - Optional: Set `AHKUtilities.ahk` to be automatically executed at startup.
 
 ## How to Use
 
-AHKUtilities can be used by holding a special hotkey enabler (HE) and pressing a command key. By default, the hotkey enabler is ScrollLock. The following list contains descriptions of available hotkeys for these features:
+AHKUtilities can be used by holding a special hotkey enabler (HE) and pressing a command key. By default, the hotkey enabler is `ScrollLock`. The following list contains descriptions of available hotkeys for these features:
 
 ### Power Settings
 
@@ -82,5 +82,5 @@ AHKUtilities can be used by holding a special hotkey enabler (HE) and pressing a
 ## Future Updates
 
 - Allow for easy setting of different a hotkey enabler.
-- Easy access to credential parameters as global variables.
-- Multiple script files for different sets of features. 
+- Multiple script files for different sets of features.
+- Add new hotkeys with great features
