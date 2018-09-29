@@ -1,10 +1,14 @@
+#NoEnv
+#SingleInstance force
+SetWorkingDir %A_ScriptDir%
+
 ;=====================================================================
-; SETUP VARIABLES
+; READ SETUP VARIABLES
 ;=====================================================================
 
-EMAIL_ADDRESS := "YOUR EMAIL ADDRESS"
-TELEGRAM_BOT_KEY := "YOUR BOT KEY"
-TELEGRAM_CHAT_ID := "YOUR CHAT ID"
+IniRead, EMAIL_ADDRESS, AHKUtilities.config, Configuration, EMAIL_ADDRESS
+IniRead, TELEGRAM_BOT_KEY, AHKUtilities.config, Configuration, TELEGRAM_BOT_KEY
+IniRead, TELEGRAM_CHAT_ID, AHKUtilities.config, Configuration, TELEGRAM_CHAT_ID
 
 ;=====================================================================
 ; GLOBAL VARIABLE DECLARATION
@@ -27,15 +31,20 @@ multiClipboard[9] := "ClipBoard 9"
 ;=====================================================================
 
 ; Reload any changes on script and keep ScrollLock always off
-ScrollLock::
+Insert::
 {
     SetScrollLockState, AlwaysOff
     Reload
+
     Return
 }
 
 ; Enable/Disable AutoHotKey script (Pause Break)
-ScrollLock & Pause::Suspend
+Insert & Pause::
+{
+    Suspend
+    Return
+}
 
 ; Keep Number Lock on
 NumLock::
@@ -49,7 +58,7 @@ NumLock::
 ;=====================================================================
 
 ; Toggle Economy Mode
-ScrollLock & F1::
+Insert & F1::
 {
     Run, powercfg -s a1841308-3541-4fab-bc81-f71556f20b4a ,,Hide
     TrayTip Plano de Energia, Modo de Economia
@@ -57,7 +66,7 @@ ScrollLock & F1::
 }
 
 ; Toggle Moderate Mode
-ScrollLock & F2::
+Insert & F2::
 {
     Run, powercfg -s 381b4222-f694-41f0-9685-ff5bb260df2e ,,Hide
     TrayTip Plano de Energia, Modo Moderado
@@ -65,7 +74,7 @@ ScrollLock & F2::
 }
 
 ; Toggle High Performance Mode
-ScrollLock & F3::
+Insert & F3::
 {
     Run, powercfg -s 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c ,,Hide
     TrayTip Plano de Energia, Modo de Alto Desempenho
@@ -77,7 +86,7 @@ ScrollLock & F3::
 ;=====================================================================
 
 ; Search selected text on google
-ScrollLock & G::
+Insert & G::
 {
 	Send, ^c
 	Sleep 50
@@ -86,7 +95,7 @@ ScrollLock & G::
 }
 
 ; Search selected text on youtube
-ScrollLock & Y::
+Insert & Y::
 {
     Send, ^c
     Sleep 50
@@ -99,16 +108,16 @@ ScrollLock & Y::
 ;=====================================================================
 
 ; Control Songs 
-ScrollLock & Left::Media_Prev
-ScrollLock & Right::Media_Next
-ScrollLock & Down::Media_Play_Pause
-ScrollLock & Up::Media_Stop
-ScrollLock & NumpadAdd::Volume_Up
-ScrollLock & NumpadSub::Volume_Down
-ScrollLock & NumpadMult::Volume_Mute
+;Insert & Left::Media_Prev
+;Insert & Right::Media_Next
+;Insert & Down::Media_Play_Pause
+;Insert & Up::Media_Stop
+;Insert & NumpadAdd::Volume_Up
+;Insert & NumpadSub::Volume_Down
+;Insert & NumpadMult::Volume_Mute
 
 ; Launch Spotify App if installed
-ScrollLock & S::
+Insert & S::
 {
     Run ".\WinApps\Spotify"
     Return
@@ -119,7 +128,7 @@ ScrollLock & S::
 ;=====================================================================
 
 ; Convert Selected Text to Uppercase
-ScrollLock & U::
+Insert & U::
 {
     SetKeyDelay, 0
     Send, ^x
@@ -130,7 +139,7 @@ ScrollLock & U::
 }
 
 ; Convert Selected Text to Lowercase
-ScrollLock & L::
+Insert & L::
 {
     SetKeyDelay, 0
     Send, ^x
@@ -141,7 +150,7 @@ ScrollLock & L::
 }
 
 ;Auto Type my email
-ScrollLock & A::
+Insert & A::
 {
     SetKeyDelay, 0
     Send, %EMAIL_ADDRESS%
@@ -153,14 +162,14 @@ ScrollLock & A::
 ;=====================================================================
 
 ; Keep a Window Always on Top
-ScrollLock & SPACE::
+Insert & SPACE::
 {
     Winset, Alwaysontop, , A
 	Return
 }
 
 ; Get pixel color from mouse position on screen
-ScrollLock & P::
+Insert & P::
 {
     MouseGetPos, MouseX, MouseY
     PixelGetColor, color, %MouseX%, %MouseY%
@@ -173,18 +182,18 @@ ScrollLock & P::
 ;=====================================================================
 
 ; Switch clipboard index
-ScrollLock & 1::multiClipboardIdx := 1
-ScrollLock & 2::multiClipboardIdx := 2
-ScrollLock & 3::multiClipboardIdx := 3
-ScrollLock & 4::multiClipboardIdx := 4
-ScrollLock & 5::multiClipboardIdx := 5
-ScrollLock & 6::multiClipboardIdx := 6
-ScrollLock & 7::multiClipboardIdx := 7
-ScrollLock & 8::multiClipboardIdx := 8
-ScrollLock & 9::multiClipboardIdx := 9
+Insert & 1::multiClipboardIdx := 1
+Insert & 2::multiClipboardIdx := 2
+Insert & 3::multiClipboardIdx := 3
+Insert & 4::multiClipboardIdx := 4
+Insert & 5::multiClipboardIdx := 5
+Insert & 6::multiClipboardIdx := 6
+Insert & 7::multiClipboardIdx := 7
+Insert & 8::multiClipboardIdx := 8
+Insert & 9::multiClipboardIdx := 9
 
 ; Custom copy
-ScrollLock & C::
+Insert & C::
 {
     temp := ClipBoard
     Send ^c
@@ -195,7 +204,7 @@ ScrollLock & C::
 }
 
 ; Custom paste
-ScrollLock & V::
+Insert & V::
 {
     temp := ClipBoard
     ClipBoard := multiClipboard[multiClipboardIdx]
@@ -209,7 +218,7 @@ ScrollLock & V::
 ;=====================================================================
 
 ; Make bot send selected text to specified chat Id
-ScrollLock & T::
+Insert & T::
 {
 	Send, ^c
 	Sleep 50

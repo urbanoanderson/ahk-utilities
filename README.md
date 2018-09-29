@@ -1,22 +1,24 @@
-# User Guide
+# AHKUtilities - User Guide
+
+[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/urbanoanderson/ahkutilities/blob/master/LICENSE.txt)
 
 ## Author
 
-AHKUtilities is written and mantained by Anderson Urbano.
+AHKUtilities is written and mantained by Anderson Urbano (anderson.urb01@gmail.com).
 
 ## About
 
-AHKUtilities is a collection of custom Windows hotkeys for productivity features implemented using [AutoHotKey](https://autohotkey.com/).
+AHKUtilities is a collection of custom Windows hotkeys for productivity features implemented using [AutoHotKey v1.1](https://autohotkey.com/).
 
 ## Instalation
 
 - Install Auto Hot Key for Windows ([link](https://autohotkey.com/download))
-- Clone or download `AHKUtilities.ahk` from this repository.
-- Edit the following setup variables at the beginning of the script:
-    - EMAIL_ADDRESS: your personal address.
-    - TELEGRAM_BOT_KEY: key for a telegram bot controlled by you
-    - TELEGRAM_CHAT_ID: chatId for a chat involving the bot (probably a chat with you)
-- Execute `AHKUtilities.ahk` with Auto Hot Key.
+- Clone or download this repository.
+- Edit the following setup variables at `AHKUtilities.config`:
+    - <EMAIL_ADDRESS>: your personal address.
+    - <TELEGRAM_BOT_KEY>: key for a telegram bot controlled by you
+    - <TELEGRAM_CHAT_ID>: chatId for a chat involving the bot (probably a chat with you)
+- Execute `AHKUtilities.ahk` with AutoHotKey.
 - Optional: Set `AHKUtilities.ahk` to be automatically executed at startup.
 
 ## How to Use
@@ -37,21 +39,7 @@ AHKUtilities can be used by holding a special hotkey enabler (HE) and pressing a
 
 - `HE+Y`: Opens a new browser tab and searches the selected text on youtube.
 
-### Media keys
-
-- `HE+LEFT`: Previous song.
-
-- `HE+RIGHT`: Next song.
-
-- `HE+UP`: Stop song.
-
-- `HE+DOWN`: Play/Pause song.
-
-- `HE+NUMPAD_PLUS`: Increase volume.
-
-- `HE+NUMPAD_MINUS`: Decrease volume.
-
-- `HE+NUMPAD_MULTIPLY`: Mute volume.
+### Application keys
 
 - `HE+S`: Launch Spotify app if installed.
 
@@ -80,9 +68,3 @@ AHKUtilities can be used by holding a special hotkey enabler (HE) and pressing a
 ### Telegram Bot Integration
 
 - `HE+T`: Make custom bot with key <TELEGRAM_BOT_KEY> send selected text to person identified by <TELEGRAM_CHAT_ID>. Great for sending links and other texts to yourself.
-
-## Future Updates
-
-- Allow for easy setting of different a hotkey enabler.
-- Multiple script files for different sets of features.
-- Add new hotkeys with great features
