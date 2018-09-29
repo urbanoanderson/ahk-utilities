@@ -23,7 +23,7 @@ AHKUtilities is a collection of custom Windows hotkeys for productivity features
 
 ## How to Use
 
-AHKUtilities can be used by holding a special hotkey enabler (HE) and pressing a command key. By default, the hotkey enabler is `ScrollLock`. The following list contains descriptions of available hotkeys for these features:
+AHKUtilities can be used by holding a special hotkey enabler (HE) and pressing a command key. By default, the hotkey enabler is `Insert`. The following list contains descriptions of available hotkeys for these features:
 
 ### Power Settings
 
