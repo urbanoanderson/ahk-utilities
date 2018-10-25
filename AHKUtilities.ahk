@@ -31,7 +31,7 @@ multiClipboard[9] := "ClipBoard 9"
 ;=====================================================================
 
 ; Reload any changes on script and keep ScrollLock always off
-Insert::
+ScrollLock::
 {
     SetScrollLockState, AlwaysOff
     Reload
@@ -40,7 +40,7 @@ Insert::
 }
 
 ; Enable/Disable AutoHotKey script (Pause Break)
-Insert & Pause::
+ScrollLock & Pause::
 {
     Suspend
     Return
@@ -58,7 +58,7 @@ NumLock::
 ;=====================================================================
 
 ; Toggle Economy Mode
-Insert & F1::
+ScrollLock & F1::
 {
     Run, powercfg -s a1841308-3541-4fab-bc81-f71556f20b4a ,,Hide
     TrayTip Plano de Energia, Modo de Economia
@@ -66,7 +66,7 @@ Insert & F1::
 }
 
 ; Toggle Moderate Mode
-Insert & F2::
+ScrollLock & F2::
 {
     Run, powercfg -s 381b4222-f694-41f0-9685-ff5bb260df2e ,,Hide
     TrayTip Plano de Energia, Modo Moderado
@@ -74,7 +74,7 @@ Insert & F2::
 }
 
 ; Toggle High Performance Mode
-Insert & F3::
+ScrollLock & F3::
 {
     Run, powercfg -s 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c ,,Hide
     TrayTip Plano de Energia, Modo de Alto Desempenho
@@ -86,7 +86,7 @@ Insert & F3::
 ;=====================================================================
 
 ; Search selected text on google
-Insert & G::
+ScrollLock & G::
 {
 	Send, ^c
 	Sleep 50
@@ -95,7 +95,7 @@ Insert & G::
 }
 
 ; Search selected text on youtube
-Insert & Y::
+ScrollLock & Y::
 {
     Send, ^c
     Sleep 50
@@ -108,16 +108,16 @@ Insert & Y::
 ;=====================================================================
 
 ; Control Songs 
-;Insert & Left::Media_Prev
-;Insert & Right::Media_Next
-;Insert & Down::Media_Play_Pause
-;Insert & Up::Media_Stop
-;Insert & NumpadAdd::Volume_Up
-;Insert & NumpadSub::Volume_Down
-;Insert & NumpadMult::Volume_Mute
+;ScrollLock & Left::Media_Prev
+;ScrollLock & Right::Media_Next
+;ScrollLock & Down::Media_Play_Pause
+;ScrollLock & Up::Media_Stop
+;ScrollLock & NumpadAdd::Volume_Up
+;ScrollLock & NumpadSub::Volume_Down
+;ScrollLock & NumpadMult::Volume_Mute
 
 ; Launch Spotify App if installed
-Insert & S::
+ScrollLock & S::
 {
     Run ".\WinApps\Spotify"
     Return
@@ -128,7 +128,7 @@ Insert & S::
 ;=====================================================================
 
 ; Convert Selected Text to Uppercase
-Insert & U::
+ScrollLock & U::
 {
     SetKeyDelay, 0
     Send, ^x
@@ -139,7 +139,7 @@ Insert & U::
 }
 
 ; Convert Selected Text to Lowercase
-Insert & L::
+ScrollLock & L::
 {
     SetKeyDelay, 0
     Send, ^x
@@ -150,7 +150,7 @@ Insert & L::
 }
 
 ;Auto Type my email
-Insert & A::
+ScrollLock & A::
 {
     SetKeyDelay, 0
     Send, %EMAIL_ADDRESS%
@@ -162,14 +162,14 @@ Insert & A::
 ;=====================================================================
 
 ; Keep a Window Always on Top
-Insert & SPACE::
+ScrollLock & SPACE::
 {
     Winset, Alwaysontop, , A
 	Return
 }
 
 ; Get pixel color from mouse position on screen
-Insert & P::
+ScrollLock & P::
 {
     MouseGetPos, MouseX, MouseY
     PixelGetColor, color, %MouseX%, %MouseY%
@@ -182,18 +182,18 @@ Insert & P::
 ;=====================================================================
 
 ; Switch clipboard index
-Insert & 1::multiClipboardIdx := 1
-Insert & 2::multiClipboardIdx := 2
-Insert & 3::multiClipboardIdx := 3
-Insert & 4::multiClipboardIdx := 4
-Insert & 5::multiClipboardIdx := 5
-Insert & 6::multiClipboardIdx := 6
-Insert & 7::multiClipboardIdx := 7
-Insert & 8::multiClipboardIdx := 8
-Insert & 9::multiClipboardIdx := 9
+ScrollLock & 1::multiClipboardIdx := 1
+ScrollLock & 2::multiClipboardIdx := 2
+ScrollLock & 3::multiClipboardIdx := 3
+ScrollLock & 4::multiClipboardIdx := 4
+ScrollLock & 5::multiClipboardIdx := 5
+ScrollLock & 6::multiClipboardIdx := 6
+ScrollLock & 7::multiClipboardIdx := 7
+ScrollLock & 8::multiClipboardIdx := 8
+ScrollLock & 9::multiClipboardIdx := 9
 
 ; Custom copy
-Insert & C::
+ScrollLock & C::
 {
     temp := ClipBoard
     Send ^c
@@ -204,7 +204,7 @@ Insert & C::
 }
 
 ; Custom paste
-Insert & V::
+ScrollLock & V::
 {
     temp := ClipBoard
     ClipBoard := multiClipboard[multiClipboardIdx]
@@ -218,7 +218,7 @@ Insert & V::
 ;=====================================================================
 
 ; Make bot send selected text to specified chat Id
-Insert & T::
+ScrollLock & T::
 {
 	Send, ^c
 	Sleep 50
@@ -231,10 +231,6 @@ Insert & T::
 	WinHTTP.Send()
 
     TrayTip Text Sent to Telegram, %textMessage%
-	
-    ;Result := WinHTTP.ResponseText
-    ;Status := WinHTTP.Status
-    ;msgbox % "status: " status "`n`nresult: " result
 	
 	Return
 }

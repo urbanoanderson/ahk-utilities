@@ -12,18 +12,18 @@ AHKUtilities is a collection of custom Windows hotkeys for productivity features
 
 ## Instalation
 
-- Install Auto Hot Key for Windows ([link](https://autohotkey.com/download))
+- Install AutoHotKey v1 for Windows ([link](https://autohotkey.com/download))
 - Clone or download this repository.
 - Edit the following setup variables at `AHKUtilities.config`:
     - <EMAIL_ADDRESS>: your personal address.
     - <TELEGRAM_BOT_KEY>: key for a telegram bot controlled by you
     - <TELEGRAM_CHAT_ID>: chatId for a chat involving the bot (probably a chat with you)
 - Execute `AHKUtilities.ahk` with AutoHotKey.
-- Optional: Set `AHKUtilities.ahk` to be automatically executed at startup.
+- Optional: You can set `AHKUtilities.ahk` to be automatically executed at startup. On Windows 10, place a shortcut to the script at `%appdata%\Microsoft\Windows\Start Menu\Programs\Startup`.
 
 ## How to Use
 
-AHKUtilities can be used by holding a special hotkey enabler (HE) and pressing a command key. By default, the hotkey enabler is `Insert`. The following list contains descriptions of available hotkeys for these features:
+AHKUtilities can be used by holding a special hotkey enabler (HE) and pressing a command key. By default, the hotkey enabler is `ScrollLock`. The following list contains descriptions of available hotkeys for these features:
 
 ### Power Settings
 
