@@ -108,13 +108,13 @@ ScrollLock & Y::
 ;=====================================================================
 
 ; Control Songs 
-;ScrollLock & Left::Media_Prev
-;ScrollLock & Right::Media_Next
-;ScrollLock & Down::Media_Play_Pause
-;ScrollLock & Up::Media_Stop
-;ScrollLock & NumpadAdd::Volume_Up
-;ScrollLock & NumpadSub::Volume_Down
-;ScrollLock & NumpadMult::Volume_Mute
+ScrollLock & Left::Send {Media_Prev}
+ScrollLock & Right::Send {Media_Next}
+ScrollLock & Down::Send {Media_Play_Pause}
+ScrollLock & Up::Send {Media_Stop}
+ScrollLock & NumpadAdd::Send {Volume_Up}
+ScrollLock & NumpadSub::Send {Volume_Down}
+ScrollLock & NumpadMult::Send {Volume_Mute}
 
 ; Launch Spotify App if installed
 ScrollLock & S::
